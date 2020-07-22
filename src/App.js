@@ -9,19 +9,21 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1> COVID-19 TRACKER </h1>
-      <FormControl className="app__dropdown">
-        <Select
-          variant="outlined"
-          value="abc"
-        >
-          <MenuItem value="worldwide">Worldwide</MenuItem>
-          <MenuItem value="worldwide">Worldwide</MenuItem>
-          <MenuItem value="worldwide">Worldwide</MenuItem>
-          <MenuItem value="worldwide">Worldwide</MenuItem>
-        </Select>
+      <div className="app__header">
+        <h1> COVID-19 TRACKER </h1>
+        <FormControl className="app__dropdown">
+          <Select variant="outlined" value="abc">
+            {/* Loop through all the countries and show a drop down list of the options*/}
 
-      </FormControl>
+            {/*<MenuItem value="worldwide">Worldwide</MenuItem>
+            <MenuItem value="worldwide">Option two</MenuItem>
+            <MenuItem value="worldwide">Option Three</MenuItem>
+  <MenuItem value="worldwide">Option four</MenuItem>*/}
+          </Select>
+
+        </FormControl>
+
+      </div>
 
       {/* Header */}
       {/* Title + Select input dropdown field*/}
