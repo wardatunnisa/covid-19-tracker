@@ -1,12 +1,13 @@
-import React from 'react';
-import {
-  MenuItem,
-  FormControl,
-  Select,
-} from "@material-ui/core";
+import React, { useState } from 'react';
+import { MenuItem, FormControl, Select } from "@material-ui/core";
 import './App.css';
 
 function App() {
+  const [countries, setCountries] = useState(["USA", "UK", "INDIA"
+  ]);
+
+  // STATE = How to write a variable in REACT 
+
   return (
     <div className="App">
       <div className="app__header">
@@ -14,6 +15,13 @@ function App() {
         <FormControl className="app__dropdown">
           <Select variant="outlined" value="abc">
             {/* Loop through all the countries and show a drop down list of the options*/}
+
+            {
+              countries.map(country => (
+                <MenuItem value={country}>{country}</MenuItem>
+              ))
+
+            }
 
             {/*<MenuItem value="worldwide">Worldwide</MenuItem>
             <MenuItem value="worldwide">Option two</MenuItem>
