@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { MenuItem, FormControl, Select } from "@material-ui/core";
+import { MenuItem, FormControl, Select, Card, CardContent } from "@material-ui/core";
+import InfoBox from './InfoBox';
+import Map from './Map';
 import './App.css';
 
 function App() {
@@ -29,35 +31,40 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="app__header">
-        <h1> COVID-19 TRACKER </h1>
-        <FormControl className="app__dropdown">
-          <Select variant="outlined"
-            onChange={onCountryChange} value={country}>
-            <MenuItem value="worldwide">Worldwide</MenuItem>
-            {
-              countries.map(country => (
-                <MenuItem value={country.value}>{country.name}</MenuItem>
-              ))
-            }
+    <div className="app">
+      <div className="app__left">
+        <div className="app__header">
+          <h1> COVID-19 TRACKER </h1>
+          <FormControl className="app__dropdown">
+            <Select variant="outlined"
+              onChange={onCountryChange} value={country}>
+              <MenuItem value="worldwide">Worldwide</MenuItem>
+              {
+                countries.map(country => (
+                  <MenuItem value={country.value}>{country.name}</MenuItem>
+                ))
+              }
+            </Select>
+          </FormControl>
+        </div>
 
-          </Select>
+        <div className="app__stats">
+          <InfoBox title="Coronavirus cases" cases={123} total={2000} />
+          <InfoBox title="Recovered" cases={1234} total={3000} />
+          <InfoBox title="Death" cases={12345} total={4000} />
+        </div>
 
-        </FormControl>
-
+        <Map />
       </div>
+      <Card className="app_right">
+        <CardContent>
+          <h3>Live Cases by Country</h3>
+          {/* Table */}
+          <h3>Worldwide new Cases</h3>
+          {/* Graph */}
+        </CardContent>
 
-      <div classname="app__stats">
-        {/* InfoBoxs title="Coronavirus cases" */}
-        {/* InfoBoxs title="Coronavirus Recoveries" */}
-        {/* InfoBoxs*/}
-      </div>
-
-      {/* Table */}
-      {/* Graph */}
-
-      {/* Map */}
+      </Card>
     </div>
   );
 }
